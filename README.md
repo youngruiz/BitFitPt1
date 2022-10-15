@@ -4,7 +4,7 @@ Submitted by: **Daniel Ruiz**
 
 **BitFit-Pt1** is a health metrics app that allows users to track exercise sessions.
 
-Time spent: **7** hours spent in total
+Time spent: **8** hours spent in total
 
 ## Required Features
 
@@ -13,7 +13,7 @@ The following **required** functionality is completed:
 - [x] **At least one health metric is tracked (based on user input)**
   - Chosen metric(s): Time, calories of exercise session.
 - [x] **There is a "create entry" UI that prompts users to make their daily entry**
-- [ ] **New entries are saved in a database and then updated in the RecyclerView**
+- [x] **New entries are saved in a database and then updated in the RecyclerView**
 - [x] **On application restart, previously entered entries are preserved (i.e., are *persistent*)**
  
 The following **optional** features are implemented:
@@ -41,9 +41,6 @@ GIF created with [LiceCAP](https://www.cockos.com/licecap/)
 [ScreenToGif](https://www.screentogif.com/) for Windows
 [peek](https://github.com/phw/peek) for Linux. -->
 
-## Notes
-
-Just about had the requirements, just couldn't get recycler view to work.
 
 ## License
 
