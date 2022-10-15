@@ -14,12 +14,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.example.bitfit_pt1.databinding.ActivityMainBinding
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 import okhttp3.Headers
 import org.json.JSONException
+
+private const val TAG = "MainActivity/"
 
 
 class MainActivity : AppCompatActivity() {
@@ -60,9 +63,7 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
 
-        lifecycleScope.launch {
-            (application as MyApplication).db.ExerciseDao().getAll().coll
-        }
+
 
 
         // Add button

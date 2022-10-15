@@ -1,8 +1,11 @@
 package com.example.bitfit_pt1
 
+import android.app.Activity
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers.IO
@@ -18,9 +21,10 @@ class AddExerciseActivity : AppCompatActivity() {
         val submitButton = findViewById<Button>(R.id.SubmitButton)
 
         submitButton.setOnClickListener {
-            val name = findViewById<EditText>(R.id.exerciseNameEt).text.toString()
-            val time = findViewById<EditText>(R.id.exerciseDurationEt).text.toString()
-            val calories = findViewById<EditText>(R.id.exerciseCaloriesEt).text.toString()
+
+            var name = findViewById<EditText>(R.id.exerciseNameEt).text.toString()
+            var time = findViewById<EditText>(R.id.exerciseDurationEt).text.toString()
+            var calories = findViewById<EditText>(R.id.exerciseCaloriesEt).text.toString()
 
             // Save this exersize to the database.
             lifecycleScope.launch(IO) {
@@ -28,6 +32,34 @@ class AddExerciseActivity : AppCompatActivity() {
                     ExerciseEntity(name, time, calories)
                 )
             }
+
+            var nameEt: TextView
+            nameEt = findViewById(R.id.exerciseNameEt)
+            nameEt.text = ""
+
+            var durationEt: TextView
+            durationEt = findViewById(R.id.exerciseDurationEt)
+            durationEt.text = ""
+
+            var caloriesEt: TextView
+            caloriesEt = findViewById(R.id.exerciseCaloriesEt)
+            caloriesEt.text = ""
+
+
+
+            // To close keyboard.
+            val view = currentFocus
+            if (view != null) {
+                view.clearFocus()
+                val inputMethodManager =
+                    getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(
+                    view.windowToken,
+                    InputMethodManager.HIDE_NOT_ALWAYS
+                )
+            }
+
+
         }
 
 
