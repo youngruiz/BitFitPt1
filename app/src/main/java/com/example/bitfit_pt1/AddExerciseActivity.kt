@@ -1,6 +1,7 @@
 package com.example.bitfit_pt1
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
@@ -58,6 +59,13 @@ class AddExerciseActivity : AppCompatActivity() {
                     InputMethodManager.HIDE_NOT_ALWAYS
                 )
             }
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+
+
+
 
 
         }

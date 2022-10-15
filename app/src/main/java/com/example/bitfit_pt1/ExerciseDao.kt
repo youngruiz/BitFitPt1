@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ExerciseDao {
     @Query("SELECT * FROM exercise_table")
-    fun getAll(): List<ExerciseEntity>
+    fun getAll(): Flow<List<ExerciseEntity>>
 
     @Insert
     fun insertAll(exercise: List<ExerciseEntity>)

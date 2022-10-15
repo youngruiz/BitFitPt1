@@ -49,20 +49,22 @@ class MainActivity : AppCompatActivity() {
             exerciseRecyclerView.addItemDecoration(dividerItemDecoration)
         }
 
-//        lifecycleScope.launch {
-//            (application as MyApplication).db.ExerciseDao().getAll().collect() { databaseList ->
-//                databaseList.map { entity ->
-//                    DisplayExercise(
-//                        entity.name, entity.
-//                    )
-//                }.also { mappedList ->
-//                    exercises.clear()
-//                    exercises.addAll(mappedList)
-//                    exerciseAdapter.notifyDataSetChanged()
-//                }
-//            }
-//        }
 
+
+
+        lifecycleScope.launch {
+            (application as MyApplication).db.ExerciseDao().getAll().collect() { databaseList ->
+                databaseList.map { entity ->
+                    DisplayExercise(
+                        entity.name, entity.time, entity.calories
+                    )
+                }.also { mappedList ->
+                    exercises.clear()
+                    exercises.addAll(mappedList)
+                    exerciseAdapter.notifyDataSetChanged()
+                }
+            }
+        }
 
 
 
@@ -74,9 +76,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-
-
-
-
     }
 }
